@@ -93,7 +93,7 @@ def side_loader(persist_directory,embedding):
         #directory_count = check_directory()
         #st.write("Folder: " + str(directory_count[1]) + " chunk(s) in " + str(directory_count[0]) + " file(s)")
         
-        if st.button("Process"):
+        if st.button("Reload KB"):
             with st.spinner("Processing..."):
                  
                 vectordb.delete_collection()
@@ -117,7 +117,7 @@ def side_loader(persist_directory,embedding):
                     )        
                 # create conversation chain
                 st.session_state.conversation = get_conversation_chain(vectordb)
-                st.write("Ready")    
+                st.write("Done.")    
 
 
 def main():
@@ -173,7 +173,7 @@ def main():
     # create conversation chain
     st.session_state.conversation = get_conversation_chain(vectordb)
 
-    #side_loader(persist_directory,embedding);
+    side_loader(persist_directory,embedding);
     
 
 if __name__ == "__main__":
